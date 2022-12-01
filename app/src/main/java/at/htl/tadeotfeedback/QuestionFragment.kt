@@ -5,6 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
+import at.htl.tadeotfeedback.databinding.FragmentQuestionBinding
+import at.htl.tadeotfeedback.databinding.FragmentWelcomeBinding
+import kotlinx.android.synthetic.main.fragment_question.view.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -29,12 +34,36 @@ class QuestionFragment : Fragment() {
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_question, container, false)
+        val binding: FragmentQuestionBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_question,container,false)
+        binding.imageView2.setOnClickListener {
+                view -> view.findNavController().navigate(R.id.action_questionFragment_to_summaryFragment)
+        }
+        binding.imageView3.setOnClickListener {
+                view -> view.findNavController().navigate(R.id.action_questionFragment_to_summaryFragment)
+        }
+
+        binding.imageView4.setOnClickListener {
+                view -> view.findNavController().navigate(R.id.action_questionFragment_to_summaryFragment)
+        }
+
+        binding.imageView5.setOnClickListener {
+                view -> view.findNavController().navigate(R.id.action_questionFragment_to_summaryFragment)
+        }
+
+        binding.imageView6.setOnClickListener {
+                view -> view.findNavController().navigate(R.id.action_questionFragment_to_summaryFragment)
+        }
+
+        binding.imageView10.setOnClickListener {
+                view -> view.findNavController().navigate(R.id.action_questionFragment_to_summaryFragment)
+        }
+
+        binding.button.setOnClickListener {
+                view -> view.findNavController().navigate(R.id.action_questionFragment_to_noAnswerFragment)
+        }
+        return binding.root
     }
 
     companion object {

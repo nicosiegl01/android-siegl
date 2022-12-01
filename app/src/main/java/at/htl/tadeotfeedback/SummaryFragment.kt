@@ -5,9 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
+import at.htl.tadeotfeedback.databinding.FragmentSummaryBinding
 import at.htl.tadeotfeedback.databinding.FragmentWelcomeBinding
 
 // TODO: Rename parameter arguments, choose names that match
@@ -17,15 +17,13 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [WelcomeFragment.newInstance] factory method to
+ * Use the [SummaryFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class WelcomeFragment : Fragment() {
+class SummaryFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-
-    //private var button: Button? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,14 +31,16 @@ class WelcomeFragment : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
-
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         // Inflate the layout for this fragment
-        val binding:FragmentWelcomeBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_welcome,container,false)
-        binding.buttonStart.setOnClickListener {
-            view -> view.findNavController().navigate(R.id.action_welcomeFragment_to_questionFragment)
+        val binding: FragmentSummaryBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_summary,container,false)
+        binding.button2.setOnClickListener {
+                view -> view.findNavController().navigate(R.id.action_summaryFragment_to_welcomeFragment)
         }
         return binding.root
     }
@@ -52,24 +52,16 @@ class WelcomeFragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment WelcomeFragment.
+         * @return A new instance of fragment SummaryFragment.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            WelcomeFragment().apply {
+            SummaryFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
                 }
             }
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        /*button?.setOnClickListener {
-            println("button clicked")
-            view.findNavController().navigate(R.id.action_welcomeFragment_to_questionFragment)
-        }*/
-        super.onViewCreated(view, savedInstanceState)
     }
 }
