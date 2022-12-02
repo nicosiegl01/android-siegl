@@ -21,4 +21,5 @@
     <string name="tv_thank_you">Danke für Ihr Feedback</string>
     <string name="tv_last_rating">Ihre_letzte_bewertung_war_xxxx</string>
     <string name="help">Das ist ein Test für die Hilfe</string>
+    <string name="menu_main_help">Help</string>
 </resources>

@@ -21,7 +21,8 @@
         tools:layout="@layout/fragment_question" >
         <action
             android:id="@+id/action_questionFragment_to_summaryFragment"
-            app:destination="@id/summaryFragment" />
+            app:destination="@id/summaryFragment"
+            app:popUpToInclusive="false" />
         <action
             android:id="@+id/action_questionFragment_to_noAnswerFragment"
             app:destination="@id/noAnswerFragment" />
